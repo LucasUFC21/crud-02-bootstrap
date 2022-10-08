@@ -1,23 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Link } from 'react-router-dom'
+
+import CRUDRoutes from './components/routes/CRUDRoutes';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+        <Link to='/' className='navbar-brand' style={{ paddingLeft: 10 }}>CRUD</Link>
+        <div className='collapse navbar-collapse' id='navbarSupportedContent'>
+          <ul className='navbar-nav mr-auto'>
+            <li className='nav-item'>
+              <Link to='/' className='nav-link'>Home</Link>
+            </li>
+
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Estudante
+              </a>
+              <ul className="dropdown-menu">
+                <li className='nav-item'>
+                  <Link to='/createStudent' className='nav-link'>Criar Estudante</Link>
+                </li>
+                <li className='nav-item'>
+                  <Link to='/listStudent' className='nav-link'>Listar Estudante</Link>
+                </li>
+                <li className='nav-item'>
+                  <Link to='/editStudent' className='nav-link'>Editar Estudante</Link>
+                </li>
+              </ul>
+            </li>
+
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Professor
+              </a>
+              <ul className="dropdown-menu">
+                <li className='nav-item'>
+                  <Link to='/createTeacher' className='nav-link'>Criar Professor</Link>
+                </li>
+                <li className='nav-item'>
+                  <Link to='/listTeacher' className='nav-link'>Listar Professor</Link>
+                </li>
+                <li className='nav-item'>
+                  <Link to='/editTeacher' className='nav-link'>Editar Professor</Link>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+      {<CRUDRoutes />}
     </div>
   );
 }
